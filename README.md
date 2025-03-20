@@ -1,88 +1,78 @@
-AccessGuard with ESP
+# AccessGuard with ESP
+---
+## Project Introduction
 
-معرفی پروژه
+This project is an access control system that uses an ESP32 board, an RC522 RFID module, an OLED display, and a keypad. Users can gain access by presenting a valid RFID card and entering the correct password. If the credentials match, the relay is activated and a confirmation buzzer sounds. Otherwise, the relay remains deactivated and an alarm is activated.
 
-این پروژه یک سیستم کنترل دسترسی است که از برد ESP32، ماژول RFID RC522، نمایشگر OLED و صفحه‌کلید (Keypad) استفاده می‌کند. در این سیستم، کاربران می‌توانند با ارائه یک کارت RFID معتبر و وارد کردن رمز عبور صحیح، دسترسی داشته باشند. در صورت تطابق اطلاعات، چراغ سبز روشن شده و یک بوق تأیید پخش می‌شود. در غیر این صورت، چراغ قرمز روشن شده و یک بوق هشدار پخش خواهد شد.
+## Required Components
 
-قطعات مورد نیاز
+- **ESP32 Board** (for processing and module control)
+- **RFID RC522 Module** (for reading RFID cards)
+- **OLED Display** (for system status display)
+- **Keypad** (for password entry)
+- **Relay Module** (to control access mechanisms)
+- **Buzzer** (for confirmation or warning alerts)
+- **Appropriate Power Supply**
 
-برد ESP32 (جهت پردازش اطلاعات و کنترل ماژول‌ها)
+---
 
-ماژول RFID RC522 (جهت خواندن کارت‌های RFID)
+## System Operation
 
-نمایشگر OLED (برای نمایش وضعیت سیستم)
+1. **RFID Card Reading:** The system reads the card using the RC522 module and verifies its ID.
+2. **Password Entry:** If the card is valid, the user is prompted to enter a password via the Keypad.
+3. **Credential Validation:**
+    - If both the card and password are valid:
+        - The relay is activated.
+        - A confirmation buzzer sounds.
+        - Access is granted.
+    - If the card is invalid or the password is incorrect:
+        - The relay remains deactivated.
+        - A warning buzzer sounds.
+        - Access is denied.
 
-صفحه‌کلید (Keypad) (جهت ورود رمز عبور)
+---
 
-LED قرمز و سبز (جهت نمایش وضعیت دسترسی)
+## Setup and Execution
 
-بازر (Buzzer) (برای اعلام وضعیت تأیید یا هشدار)
+### Install Required Libraries
 
-منبع تغذیه مناسب
+- `MFRC522.h` for the RFID module
+- `Wire.h` and `Adafruit_SSD1306.h` for OLED display
+- `Adafruit_GFX.h` for OLED graphics
+- `Keypad.h` for the keypad
 
-نحوه کارکرد سیستم
+---
 
-خواندن کارت RFID: سیستم کارت را از طریق ماژول RC522 خوانده و شناسه آن را بررسی می‌کند.
+### Hardware Connections
 
-وارد کردن رمز عبور: در صورت معتبر بودن کارت، از کاربر درخواست می‌شود که رمز عبور خود را از طریق Keypad وارد کند.
+- Connect the **RC522** module to the ESP32.
+- Connect the **OLED display** to the ESP32.
+- Connect the **Keypad** to the appropriate ESP32 pins.
+- Connect the **Relay Module** to the ESP32.
 
-اعتبارسنجی اطلاعات: اگر کارت و رمز عبور هر دو معتبر باشند:
+### Uploading Code to ESP32
 
-LED سبز روشن می‌شود.
+- Use **Arduino IDE** or **PlatformIO**
+- Configure input and output pins
+- Upload the code and test the system
 
-بوق تأیید پخش می‌شود.
+## Usage
 
-دسترسی مجاز خواهد بود.
+1. Place your **RFID card** on the module.
+2. If valid, enter your **password** via the Keypad.
+3. Check the **OLED display** for the operation result.
 
-خطا در ورود اطلاعات: اگر کارت نامعتبر باشد یا رمز عبور اشتباه وارد شود:
+---
 
-LED قرمز روشن می‌شود.
+## Future Enhancements
 
-بوق هشدار فعال می‌شود.
+- Adding memory to store authorized cards and passwords
+- Connecting to a server for access logs
+- Implementing wireless connectivity via WiFi for remote control
 
-دسترسی رد خواهد شد.
+## License
 
-نحوه راه‌اندازی و اجرا
-
-نصب کتابخانه‌های مورد نیاز:
-
-MFRC522.h برای ماژول RFID
-
-Wire.h و Adafruit_SSD1306.h برای OLED
-
-Adafruit_GFX.h برای گرافیک نمایشگر OLED
-
-Keypad.h برای صفحه‌کلید
-
-اتصال سخت‌افزار:
-
-RC522 به ESP32 متصل شود.
-
-OLED به ESP32 متصل شود.
-
-Keypad به پین‌های مناسب ESP32 وصل شود.
-
-آپلود کد روی ESP32:
-
-استفاده از Arduino IDE یا PlatformIO
-
-تنظیم پین‌های ورودی و خروجی
-
-آپلود کد و تست عملکرد
-
-نحوه استفاده
-
-کارت RFID خود را روی ماژول قرار دهید.
-
-در صورت معتبر بودن، رمز عبور را از طریق Keypad وارد کنید.
-
-نتیجه عملیات را روی نمایشگر OLED مشاهده کنید.
-
-توسعه و بهبود
-
-امکان افزودن حافظه برای ذخیره کارت‌ها و رمزهای عبور مجاز
-
-اتصال به سرور برای ثبت لاگ‌های ورود و خروج
+This project is released under the **MIT License**, allowing free use with attribution.
 
 افزودن ارتباط بی‌سیم از طریق WiFi برای کنترل از راه دور
 
