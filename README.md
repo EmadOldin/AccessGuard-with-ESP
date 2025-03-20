@@ -72,9 +72,3 @@ This project is an access control system that uses an ESP32 board, an RC522 RFID
 ## License
 This project is released under the **MIT License**, allowing free use with attribution.
 
-افزودن ارتباط بی‌سیم از طریق WiFi برای کنترل از راه دور
-
-لایسنس
-
-این پروژه تحت لایسنس MIT منتشر شده و استفاده از آن با ذکر منبع آزاد است.
-
