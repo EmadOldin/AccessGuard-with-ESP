@@ -1,5 +1,5 @@
 # AccessGuard with ESP
----
+
 ## Project Introduction
 
 This project is an access control system that uses an ESP32 board, an RC522 RFID module, an OLED display, and a keypad. Users can gain access by presenting a valid RFID card and entering the correct password. If the credentials match, the relay is activated and a confirmation buzzer sounds. Otherwise, the relay remains deactivated and an alarm is activated.
@@ -14,7 +14,7 @@ This project is an access control system that uses an ESP32 board, an RC522 RFID
 - **Buzzer** (for confirmation or warning alerts)
 - **Appropriate Power Supply**
 
----
+
 
 ## System Operation
 
@@ -30,7 +30,7 @@ This project is an access control system that uses an ESP32 board, an RC522 RFID
         - A warning buzzer sounds.
         - Access is denied.
 
----
+
 
 ## Setup and Execution
 
@@ -41,7 +41,7 @@ This project is an access control system that uses an ESP32 board, an RC522 RFID
 - `Adafruit_GFX.h` for OLED graphics
 - `Keypad.h` for the keypad
 
----
+
 
 ### Hardware Connections
 
@@ -62,16 +62,14 @@ This project is an access control system that uses an ESP32 board, an RC522 RFID
 2. If valid, enter your **password** via the Keypad.
 3. Check the **OLED display** for the operation result.
 
----
+
 
 ## Future Enhancements
-
 - Adding memory to store authorized cards and passwords
 - Connecting to a server for access logs
 - Implementing wireless connectivity via WiFi for remote control
 
 ## License
-
 This project is released under the **MIT License**, allowing free use with attribution.
 
 افزودن ارتباط بی‌سیم از طریق WiFi برای کنترل از راه دور
